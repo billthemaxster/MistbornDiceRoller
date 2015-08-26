@@ -21,6 +21,17 @@ namespace MistbornDiceRoller
         private List<Die> Dice { get; set; }
 
         /// <summary>
+        /// Gets the number of dice in the repository.
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return this.Dice.Count;
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DiceRepository"/> class.
         /// </summary>
         public DiceRepository()
@@ -53,11 +64,11 @@ namespace MistbornDiceRoller
         {
             if (this.Dice.Count == 10)
             {
-                throw new InvalidOperationException("Cannot have more than 10 dice.");
+                throw new InvalidOperationException(Exceptions.RepositoryCountAtMax);
             }
             else if (this.Dice.Count > 10)
             {
-                throw new InvalidOperationException("There are more than 10 dice in the repository.");
+                throw new InvalidOperationException(Exceptions.RepositoryCountGreaterThanMax);
             }
             else
             {
@@ -96,11 +107,11 @@ namespace MistbornDiceRoller
         {
             if (this.Dice.Count == 2)
             {
-                throw new InvalidOperationException("Cannot have less than 2 dice.");
+                throw new InvalidOperationException(Exceptions.RepositoryCountAtMin);
             }
             else if (this.Dice.Count < 2)
             {
-                throw new InvalidOperationException("There are less than 2 dice in the repository.");
+                throw new InvalidOperationException(Exceptions.RepositoryCountLessThanMin);
             }
             else
             {
@@ -151,6 +162,22 @@ namespace MistbornDiceRoller
             }
 
             return nudgeCount;
+        }
+
+        /// <summary>
+        /// Gets the values of the rolls.
+        /// </summary>
+        /// <returns>A list of the roll values.</returns>
+        public List<int> GetRollValues()
+        {
+            List<int> values = new List<int>();
+
+            foreach (Die die in this.Dice)
+            {
+                values.Add(die.Value);
+            }
+
+            return values;
         }
     }
 }

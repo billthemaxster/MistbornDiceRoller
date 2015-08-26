@@ -29,12 +29,113 @@ namespace MistbornDiceRoller
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtCount = new System.Windows.Forms.TextBox();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.lblDiceNumber = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.lblNudges = new System.Windows.Forms.Label();
+            this.txtNudges = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(15, 63);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(40, 20);
+            this.txtCount.TabIndex = 0;
+            // 
+            // btnUp
+            // 
+            this.btnUp.Location = new System.Drawing.Point(15, 31);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(40, 23);
+            this.btnUp.TabIndex = 1;
+            this.btnUp.Text = "↑";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.BtnUp_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Location = new System.Drawing.Point(15, 90);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(40, 23);
+            this.btnDown.TabIndex = 2;
+            this.btnDown.Text = "↓";
+            this.btnDown.UseVisualStyleBackColor = true;
+            // 
+            // lblDiceNumber
+            // 
+            this.lblDiceNumber.AutoSize = true;
+            this.lblDiceNumber.Location = new System.Drawing.Point(12, 15);
+            this.lblDiceNumber.Name = "lblDiceNumber";
+            this.lblDiceNumber.Size = new System.Drawing.Size(84, 13);
+            this.lblDiceNumber.TabIndex = 3;
+            this.lblDiceNumber.Text = "Number of Dice:";
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(134, 15);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(40, 13);
+            this.lblResult.TabIndex = 4;
+            this.lblResult.Text = "Result:";
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(137, 33);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(56, 20);
+            this.txtResult.TabIndex = 5;
+            // 
+            // lblNudges
+            // 
+            this.lblNudges.AutoSize = true;
+            this.lblNudges.Location = new System.Drawing.Point(134, 66);
+            this.lblNudges.Name = "lblNudges";
+            this.lblNudges.Size = new System.Drawing.Size(47, 13);
+            this.lblNudges.TabIndex = 6;
+            this.lblNudges.Text = "Nudges:";
+            // 
+            // txtNudges
+            // 
+            this.txtNudges.Location = new System.Drawing.Point(137, 92);
+            this.txtNudges.Name = "txtNudges";
+            this.txtNudges.Size = new System.Drawing.Size(56, 20);
+            this.txtNudges.TabIndex = 7;
+            // 
+            // DiceRollerForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.txtNudges);
+            this.Controls.Add(this.lblNudges);
+            this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.lblDiceNumber);
+            this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnUp);
+            this.Controls.Add(this.txtCount);
+            this.Name = "DiceRollerForm";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Label lblDiceNumber;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Label lblNudges;
+        private System.Windows.Forms.TextBox txtNudges;
     }
 }
 

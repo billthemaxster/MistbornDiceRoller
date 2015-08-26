@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MistbornDiceRoller.Properties {
+namespace MistbornDiceRoller {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MistbornDiceRoller.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class UIMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal UIMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MistbornDiceRoller.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.UIMessages", typeof(UIMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,29 @@ namespace MistbornDiceRoller.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot have more than 10 dice..
+        ///   Looks up a localized string similar to Could not add another dice, there are already 10..
         /// </summary>
-        internal static string RepositoryCountAtMaxException {
+        internal static string CantAddCountMax {
             get {
-                return ResourceManager.GetString("RepositoryCountAtMaxException", resourceCulture);
+                return ResourceManager.GetString("CantAddCountMax", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are more than 10 dice in the repository..
+        ///   Looks up a localized string similar to Number of dice reset, there were too many..
         /// </summary>
-        internal static string RepositoryCountGreaterThanMaxException {
+        internal static string RepositoryCountTooBig {
             get {
-                return ResourceManager.GetString("RepositoryCountGreaterThanMaxException", resourceCulture);
+                return ResourceManager.GetString("RepositoryCountTooBig", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot have less than 2 dice..
+        ///   Looks up a localized string similar to Number of dice reset, there were too few..
         /// </summary>
-        internal static string RepositroyCountAtMinException {
+        internal static string RepositoryCountTooSmall {
             get {
-                return ResourceManager.GetString("RepositroyCountAtMinException", resourceCulture);
+                return ResourceManager.GetString("RepositoryCountTooSmall", resourceCulture);
             }
         }
     }

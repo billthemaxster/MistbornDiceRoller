@@ -21,11 +21,68 @@ namespace MistbornDiceRoller
     public partial class DiceRollerForm : Form
     {
         /// <summary>
+        /// Gets or sets the dice repository.
+        /// </summary>
+        private DiceRepository Repository { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DiceRollerForm"/> class.
         /// </summary>
         public DiceRollerForm()
         {
             InitializeComponent();
+
+            this.Repository = new DiceRepository(6);
+        }
+
+        /// <summary>
+        /// Adds a dice to the repository.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the event args</param>
+        private void BtnUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.Repository.Count == 10)
+                {
+                    MessageBox.Show(UIMessages.CantAddCountMax);
+                }
+                else if (this.Repository.Count > 10)
+                {
+                    MessageBox.Show(UIMessages.RepositoryCountTooBig);
+                }
+                else if (this.Repository.Count < 2)
+                {
+                    MessageBox.Show(UIMessages.RepositoryCountTooSmall);
+                }
+                else
+                {
+                    this.Repository.Add();
+                }
+            }
+            catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountAtMax)
+            {
+                MessageBox.Show(UIMessages.CantAddCountMax);
+            }
+            catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountGreaterThanMax)
+            {
+                this.Repository = new DiceRepository(6);
+                MessageBox.Show(UIMessages.RepositoryCountTooBig);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: /n" + ex.Message, "Unexpected Error");
+            }
+            finally
+            {
+                this.UpdateCount();
+            }
+        }
+
+        private void UpdateCount()
+        {
+            this.txtCount.Text = this.Repository.Count.ToString();
         }
     }
 }

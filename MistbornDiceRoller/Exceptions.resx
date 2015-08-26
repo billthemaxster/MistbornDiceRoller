@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RepositoryCountAtMaxException" xml:space="preserve">
+  <data name="RepositoryCountAtMax" xml:space="preserve">
     <value>Cannot have more than 10 dice.</value>
   </data>
-  <data name="RepositoryCountGreaterThanMaxException" xml:space="preserve">
+  <data name="RepositoryCountAtMin" xml:space="preserve">
+    <value>Cannot have less than 2 dice.</value>
+  </data>
+  <data name="RepositoryCountGreaterThanMax" xml:space="preserve">
     <value>There are more than 10 dice in the repository.</value>
   </data>
-  <data name="RepositroyCountAtMinException" xml:space="preserve">
-    <value>Cannot have less than 2 dice.</value>
+  <data name="RepositoryCountLessThanMin" xml:space="preserve">
+    <value>There are less than 2 dice in the repository.</value>
   </data>
 </root>

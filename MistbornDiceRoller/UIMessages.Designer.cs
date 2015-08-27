@@ -70,6 +70,15 @@ namespace MistbornDiceRoller {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not remove another dice, there are already 2..
+        /// </summary>
+        internal static string CantRemoveCountMin {
+            get {
+                return ResourceManager.GetString("CantRemoveCountMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of dice reset, there were too many..
         /// </summary>
         internal static string RepositoryCountTooBig {

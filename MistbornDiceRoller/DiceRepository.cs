@@ -44,9 +44,13 @@ namespace MistbornDiceRoller
         /// </summary>
         public DiceRepository(int numberOfDice) : this()
         {
-            if (numberOfDice <= 10)
+            if (numberOfDice > 10)
             {
                 throw new ArgumentOutOfRangeException("numberOfDice", "The number of dice must not be greater than 10.");
+            }
+            else if (numberOfDice < 2)
+            {
+                throw new ArgumentOutOfRangeException("numberOfDice", "The number of dice must not be less than 2.");
             }
             else if (numberOfDice > 0)
             {
@@ -79,11 +83,24 @@ namespace MistbornDiceRoller
         /// <summary>
         /// Resets the dice in the repository.
         /// </summary>
-        public void Reset()
+        public void Clear()
         {
             foreach (Die die in this.Dice)
             {
                 die.Reset();
+            }
+        }
+
+        /// <summary>
+        /// Resets the repository to 6 dice.
+        /// </summary>
+        public void Reset()
+        {
+            this.Dice.Clear();
+
+            for (int i = 0; i < 6; i++)
+            {
+                this.Dice.Add(new Die());
             }
         }
 

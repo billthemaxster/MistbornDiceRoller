@@ -76,13 +76,61 @@ namespace MistbornDiceRoller
             }
             finally
             {
-                this.UpdateCount();
+                this.UpdateDiceCount();
             }
         }
 
-        private void UpdateCount()
+        /// <summary>
+        /// Updates the count of dice in the UI.
+        /// </summary>
+        private void UpdateDiceCount()
         {
-            this.txtCount.Text = this.Repository.Count.ToString();
+            this.txtDiceCount.Text = this.Repository.Count.ToString();
+        }
+
+        /// <summary>
+        /// Remove a dice from the repository.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the event args</param>
+        private void BtnDown_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.Repository.Count == 2)
+                {
+                    MessageBox.Show(UIMessages.CantRemoveCountMin);
+                }
+                else if (this.Repository.Count > 10)
+                {
+                    MessageBox.Show(UIMessages.RepositoryCountTooBig);
+                }
+                else if (this.Repository.Count < 2)
+                {
+                    MessageBox.Show(UIMessages.RepositoryCountTooSmall);
+                }
+                else
+                {
+                    this.Repository.Remove();
+                }
+            }
+            catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountAtMin)
+            {
+                MessageBox.Show(UIMessages.CantRemoveCountMin);
+            }
+            catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountLessThanMin)
+            {
+                this.Repository = new DiceRepository(6);
+                MessageBox.Show(UIMessages.RepositoryCountTooSmall);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: /n" + ex.Message, "Unexpected Error");
+            }
+            finally
+            {
+                this.UpdateDiceCount();
+            }
         }
     }
 }

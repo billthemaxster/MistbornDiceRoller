@@ -29,7 +29,7 @@ namespace MistbornDiceRoller
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCount = new System.Windows.Forms.TextBox();
+            this.txtDiceCount = new System.Windows.Forms.TextBox();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.lblDiceNumber = new System.Windows.Forms.Label();
@@ -39,12 +39,12 @@ namespace MistbornDiceRoller
             this.txtNudges = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // txtCount
+            // txtDiceCount
             // 
-            this.txtCount.Location = new System.Drawing.Point(15, 63);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(40, 20);
-            this.txtCount.TabIndex = 0;
+            this.txtDiceCount.Location = new System.Drawing.Point(15, 63);
+            this.txtDiceCount.Name = "txtDiceCount";
+            this.txtDiceCount.Size = new System.Drawing.Size(40, 20);
+            this.txtDiceCount.TabIndex = 0;
             // 
             // btnUp
             // 
@@ -64,6 +64,7 @@ namespace MistbornDiceRoller
             this.btnDown.TabIndex = 2;
             this.btnDown.Text = "↓";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.BtnDown_Click);
             // 
             // lblDiceNumber
             // 
@@ -118,9 +119,9 @@ namespace MistbornDiceRoller
             this.Controls.Add(this.lblDiceNumber);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnUp);
-            this.Controls.Add(this.txtCount);
+            this.Controls.Add(this.txtDiceCount);
             this.Name = "DiceRollerForm";
-            this.Text = "Form1";
+            this.Text = "Mistborn Dice Roller";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,7 +129,7 @@ namespace MistbornDiceRoller
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.TextBox txtDiceCount;
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Label lblDiceNumber;

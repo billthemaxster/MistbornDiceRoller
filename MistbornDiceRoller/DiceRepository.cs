@@ -21,13 +21,22 @@ namespace MistbornDiceRoller
         private List<Die> Dice { get; set; }
 
         /// <summary>
-        /// Gets the number of dice in the repository.
+        /// Gets or sets the number of dice in the repository.
         /// </summary>
         public int Count
         {
             get
             {
                 return this.Dice.Count;
+            }
+            set
+            {
+                this.Dice = new List<Die>();
+
+                for (int i = 0; i < value; i++)
+                {
+                    this.Dice.Add(new Die());
+                }
             }
         }
 
@@ -81,13 +90,13 @@ namespace MistbornDiceRoller
         }
 
         /// <summary>
-        /// Resets the dice in the repository.
+        /// Sets the value of each dice in the repository to zero.
         /// </summary>
         public void Clear()
         {
             foreach (Die die in this.Dice)
             {
-                die.Reset();
+                die.Clear();
             }
         }
 
@@ -96,25 +105,7 @@ namespace MistbornDiceRoller
         /// </summary>
         public void Reset()
         {
-            this.Dice.Clear();
-
-            for (int i = 0; i < 6; i++)
-            {
-                this.Dice.Add(new Die());
-            }
-        }
-
-        /// <summary>
-        /// Rolls the dice in the repository.
-        /// </summary>
-        public int Roll()
-        {
-            foreach (Die die in this.Dice)
-            {
-                die.Roll();
-            }
-
-            return this.GetResult();
+            this.Count = 6;
         }
 
         /// <summary>
@@ -134,6 +125,21 @@ namespace MistbornDiceRoller
             {
                 this.Dice.Remove(this.Dice.First());
             }
+        }
+
+        #region Rolling Dice
+
+        /// <summary>
+        /// Rolls the dice in the repository.
+        /// </summary>
+        public int Roll()
+        {
+            foreach (Die die in this.Dice)
+            {
+                die.Roll();
+            }
+
+            return this.GetResult();
         }
 
         /// <summary>
@@ -196,5 +202,6 @@ namespace MistbornDiceRoller
 
             return values;
         }
+        #endregion
     }
 }

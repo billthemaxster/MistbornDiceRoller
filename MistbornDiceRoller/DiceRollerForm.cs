@@ -26,14 +26,79 @@ namespace MistbornDiceRoller
         private DiceRepository Repository { get; set; }
 
         /// <summary>
+        /// Gets or sets the number of the dice in the repository.
+        /// </summary>
+        public int DiceCount { get; set; } = 6;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DiceRollerForm"/> class.
         /// </summary>
         public DiceRollerForm()
         {
             InitializeComponent();
 
-            this.Repository = new DiceRepository(6);
+            this.SetRepositoryCount();
         }
+
+        /// <summary>
+        /// Sets the number of dice in the repository to that of the DiceCount.
+        /// </summary>
+        private void SetRepositoryCount()
+        {
+            if (this.Repository == null)
+            {
+                this.Repository = new DiceRepository(this.DiceCount);
+            }
+            else
+            {
+                this.Repository.Count = this.DiceCount;
+            }
+        }
+
+        /// <summary>
+        /// Updates the count of dice in the UI.
+        /// </summary>
+        private void UpdateUIDiceCount()
+        {
+            this.txtDiceCount.Text = this.DiceCount.ToString();
+        }
+
+        /// <summary>
+        /// Validates the dice count. Displays any related information messages
+        /// to the user.
+        /// </summary>
+        /// <returns>Whether the count is valid or not</returns>
+        private bool ValidateDiceCount()
+        {
+            return this.ValidateDiceCount(this.DiceCount);
+        }
+
+        /// <summary>
+        /// Validates the dice count. Displays any related information messages
+        /// to the user.
+        /// </summary>
+        /// <param name="countValue">The number of dice in the repository</param>
+        /// <returns>Whether the count is valid or not</returns>
+        private bool ValidateDiceCount(int countValue)
+        {
+            bool isValid = false;
+            if (countValue > 10)
+            {
+                MessageBox.Show(UIMessages.RepositoryCountTooBig);
+            }
+            else if (countValue < 2)
+            {
+                MessageBox.Show(UIMessages.RepositoryCountTooSmall);
+            }
+            else
+            {
+                isValid = true;
+            }
+
+            return isValid;
+        }
+
+        #region UI Event Handlers
 
         /// <summary>
         /// Adds a dice to the repository.
@@ -44,21 +109,9 @@ namespace MistbornDiceRoller
         {
             try
             {
-                if (this.Repository.Count == 10)
+                if (this.ValidateDiceCount(this.DiceCount + 1))
                 {
-                    MessageBox.Show(UIMessages.CantAddCountMax);
-                }
-                else if (this.Repository.Count > 10)
-                {
-                    MessageBox.Show(UIMessages.RepositoryCountTooBig);
-                }
-                else if (this.Repository.Count < 2)
-                {
-                    MessageBox.Show(UIMessages.RepositoryCountTooSmall);
-                }
-                else
-                {
-                    this.Repository.Add();
+                    this.txtDiceCount.Text = (this.DiceCount + 1).ToString();
                 }
             }
             catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountAtMax)
@@ -74,18 +127,6 @@ namespace MistbornDiceRoller
             {
                 MessageBox.Show("An unexpected error occurred: /n" + ex.Message, "Unexpected Error");
             }
-            finally
-            {
-                this.UpdateDiceCount();
-            }
-        }
-
-        /// <summary>
-        /// Updates the count of dice in the UI.
-        /// </summary>
-        private void UpdateDiceCount()
-        {
-            this.txtDiceCount.Text = this.Repository.Count.ToString();
         }
 
         /// <summary>
@@ -97,21 +138,9 @@ namespace MistbornDiceRoller
         {
             try
             {
-                if (this.Repository.Count == 2)
+                if (this.ValidateDiceCount(this.DiceCount - 1))
                 {
-                    MessageBox.Show(UIMessages.CantRemoveCountMin);
-                }
-                else if (this.Repository.Count > 10)
-                {
-                    MessageBox.Show(UIMessages.RepositoryCountTooBig);
-                }
-                else if (this.Repository.Count < 2)
-                {
-                    MessageBox.Show(UIMessages.RepositoryCountTooSmall);
-                }
-                else
-                {
-                    this.Repository.Remove();
+                    this.txtDiceCount.Text = (this.DiceCount - 1).ToString();
                 }
             }
             catch (InvalidOperationException ioe) when (ioe.Message == Exceptions.RepositoryCountAtMin)
@@ -127,10 +156,38 @@ namespace MistbornDiceRoller
             {
                 MessageBox.Show("An unexpected error occurred: /n" + ex.Message, "Unexpected Error");
             }
-            finally
-            {
-                this.UpdateDiceCount();
-            }
         }
+
+        /// <summary>
+        /// Handles the dice count text changed event. Sets the number of dice.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the event args</param>
+        private void TxtDiceCount_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            int.TryParse(txtDiceCount.Text, out value);
+
+            if (this.ValidateDiceCount(value))
+            {
+                this.DiceCount = value;
+                this.SetRepositoryCount();
+            }
+
+            this.UpdateUIDiceCount();
+        }
+
+        /// <summary>
+        /// Handles the roll dice event.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the event args</param>
+        private void BtnRoll_Click(object sender, EventArgs e)
+        {
+            this.txtResult.Text = this.Repository.Roll().ToString();
+
+            this.txtNudges.Text = this.Repository.GetNudges().ToString();
+        }
+        #endregion
     }
 }

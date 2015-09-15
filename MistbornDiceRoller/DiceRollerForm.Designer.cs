@@ -37,6 +37,7 @@ namespace MistbornDiceRoller
             this.txtResult = new System.Windows.Forms.TextBox();
             this.lblNudges = new System.Windows.Forms.Label();
             this.txtNudges = new System.Windows.Forms.TextBox();
+            this.btnRoll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDiceCount
@@ -45,6 +46,8 @@ namespace MistbornDiceRoller
             this.txtDiceCount.Name = "txtDiceCount";
             this.txtDiceCount.Size = new System.Drawing.Size(40, 20);
             this.txtDiceCount.TabIndex = 0;
+            this.txtDiceCount.Text = "6";
+            this.txtDiceCount.TextChanged += new System.EventHandler(this.TxtDiceCount_TextChanged);
             // 
             // btnUp
             // 
@@ -107,11 +110,23 @@ namespace MistbornDiceRoller
             this.txtNudges.Size = new System.Drawing.Size(56, 20);
             this.txtNudges.TabIndex = 7;
             // 
+            // btnRoll
+            // 
+            this.btnRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoll.Location = new System.Drawing.Point(24, 149);
+            this.btnRoll.Name = "btnRoll";
+            this.btnRoll.Size = new System.Drawing.Size(169, 52);
+            this.btnRoll.TabIndex = 8;
+            this.btnRoll.Text = "Roll";
+            this.btnRoll.UseVisualStyleBackColor = true;
+            this.btnRoll.Click += new System.EventHandler(this.BtnRoll_Click);
+            // 
             // DiceRollerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnRoll);
             this.Controls.Add(this.txtNudges);
             this.Controls.Add(this.lblNudges);
             this.Controls.Add(this.txtResult);
@@ -137,6 +152,7 @@ namespace MistbornDiceRoller
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label lblNudges;
         private System.Windows.Forms.TextBox txtNudges;
+        private System.Windows.Forms.Button btnRoll;
     }
 }
 

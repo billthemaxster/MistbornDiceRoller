@@ -26,15 +26,25 @@ namespace MistbornDiceRoller
         /// </summary>
         public void Roll()
         {
-            this.Value = _Generator.Next(1, 6);
+            // Exclusive maximum.
+            this.Value = _Generator.Next(1, 7);
         }
 
         /// <summary>
-        /// Resets the value of the die.
+        /// Clears the value of the die.
         /// </summary>
-        public void Reset()
+        public void Clear()
         {
             this.Value = 0;
+        }
+
+        /// <summary>
+        /// Returns the value of the dice as a string.
+        /// </summary>
+        /// <returns>The value of the dice</returns>
+        public override string ToString()
+        {
+            return this.Value.ToString();
         }
     }
 }

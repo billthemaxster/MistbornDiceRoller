@@ -79,6 +79,15 @@ namespace MistbornDiceRoller {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The number of dice must be set to roll..
+        /// </summary>
+        internal static string MustHaveCount {
+            get {
+                return ResourceManager.GetString("MustHaveCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of dice reset, there were too many..
         /// </summary>
         internal static string RepositoryCountTooBig {

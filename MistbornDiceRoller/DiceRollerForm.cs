@@ -4,13 +4,6 @@
 // <author>Martin Kennish</author>
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MistbornDiceRoller
@@ -24,6 +17,8 @@ namespace MistbornDiceRoller
         /// Gets or sets the dice repository.
         /// </summary>
         private DiceRepository Repository { get; set; }
+
+        private bool CanRoll { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the number of the dice in the repository.
@@ -165,6 +160,15 @@ namespace MistbornDiceRoller
         /// <param name="e">the event args</param>
         private void TxtDiceCount_TextChanged(object sender, EventArgs e)
         {
+            if (txtDiceCount.Text == string.Empty)
+            {
+                this.CanRoll = false;
+                return;
+            }
+
+            this.CanRoll = true;
+
+
             int value;
             int.TryParse(txtDiceCount.Text, out value);
 
@@ -184,6 +188,16 @@ namespace MistbornDiceRoller
         /// <param name="e">the event args</param>
         private void BtnRoll_Click(object sender, EventArgs e)
         {
+            if (!this.CanRoll)
+            {
+                if (this.txtDiceCount.Text == string.Empty)
+                {
+                    MessageBox.Show(UIMessages.MustHaveCount);
+                }
+
+                return;
+            }
+
             this.txtResult.Text = this.Repository.Roll().ToString();
 
             this.txtNudges.Text = this.Repository.GetNudges().ToString();

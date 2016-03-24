@@ -123,6 +123,9 @@
   <data name="CantRemoveCountMin" xml:space="preserve">
     <value>Could not remove another dice, there are already 2.</value>
   </data>
+  <data name="MustHaveCount" xml:space="preserve">
+    <value>The number of dice must be set to roll.</value>
+  </data>
   <data name="RepositoryCountTooBig" xml:space="preserve">
     <value>Number of dice reset, there were too many.</value>
   </data>

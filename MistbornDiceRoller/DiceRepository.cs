@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MistbornDiceRoller
 {
@@ -202,6 +201,36 @@ namespace MistbornDiceRoller
 
             return values;
         }
+        #endregion
+
+        #region Logging
+        //some event to log when a roll has happened
+
+        /// <summary>
+        /// Gets the string that is used to log a roll.
+        /// </summary>
+        /// <returns>The log entry for the dice roll</returns>
+        private string ToLog()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("Roll: ");
+            sb.Append(this.GetResult().ToString());
+            sb.Append(" Nudges: ");
+            sb.Append(this.GetNudges().ToString());
+            sb.Append(" DiceCount: ");
+            sb.Append(this.Dice.Count);
+            sb.Append(" \n\t");
+
+            foreach (int value in this.GetRollValues())
+            {
+                sb.Append(value.ToString());
+                sb.Append(" ");
+            }
+
+            return sb.ToString();
+        }
+
         #endregion
     }
 }

@@ -4,7 +4,7 @@
 // <author>Martin Kennish</author>
 using System;
 
-namespace MistbornDiceRoller.UI
+namespace MistbornDiceRoller
 {
     /// <summary>
     /// Represents a die and has rolling functionality.
@@ -14,7 +14,7 @@ namespace MistbornDiceRoller.UI
         /// <summary>
         /// The random number generator for dice.
         /// </summary>
-        private static Random _Generator = new Random();
+        private readonly static Random _Generator = new Random();
 
         /// <summary>
         /// Gets the value of the die.

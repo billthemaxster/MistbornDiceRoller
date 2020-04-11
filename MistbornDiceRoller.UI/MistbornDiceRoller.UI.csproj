@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MistbornDiceRoller\MistbornDiceRoller.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="DiceRollerForm.cs">
       <SubType>Form</SubType>
     </Compile>

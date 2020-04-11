@@ -5,7 +5,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace MistbornDiceRoller
+namespace MistbornDiceRoller.UI
 {
     /// <summary>
     /// Initialises the application.

@@ -6,7 +6,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace MistbornDiceRoller
+namespace MistbornDiceRoller.UI
 {
     /// <summary>
     /// A simple form that simulates rolling dice in the Mistborn Adventure Game.

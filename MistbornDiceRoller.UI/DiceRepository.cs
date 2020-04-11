@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MistbornDiceRoller
+namespace MistbornDiceRoller.UI
 {
     /// <summary>
     /// A repository for dice, has functionality for rolling and getting the number of nudges.

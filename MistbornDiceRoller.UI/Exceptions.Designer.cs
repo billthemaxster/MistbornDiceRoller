@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MistbornDiceRoller.Properties {
+namespace MistbornDiceRoller.UI {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace MistbornDiceRoller.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Exceptions {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Exceptions() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MistbornDiceRoller.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.UI.Exceptions", typeof(Exceptions).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,27 +63,36 @@ namespace MistbornDiceRoller.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cannot have more than 10 dice..
         /// </summary>
-        internal static string RepositoryCountAtMaxException {
+        internal static string RepositoryCountAtMax {
             get {
-                return ResourceManager.GetString("RepositoryCountAtMaxException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to There are more than 10 dice in the repository..
-        /// </summary>
-        internal static string RepositoryCountGreaterThanMaxException {
-            get {
-                return ResourceManager.GetString("RepositoryCountGreaterThanMaxException", resourceCulture);
+                return ResourceManager.GetString("RepositoryCountAtMax", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cannot have less than 2 dice..
         /// </summary>
-        internal static string RepositroyCountAtMinException {
+        internal static string RepositoryCountAtMin {
             get {
-                return ResourceManager.GetString("RepositroyCountAtMinException", resourceCulture);
+                return ResourceManager.GetString("RepositoryCountAtMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are more than 10 dice in the repository..
+        /// </summary>
+        internal static string RepositoryCountGreaterThanMax {
+            get {
+                return ResourceManager.GetString("RepositoryCountGreaterThanMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are less than 2 dice in the repository..
+        /// </summary>
+        internal static string RepositoryCountLessThanMin {
+            get {
+                return ResourceManager.GetString("RepositoryCountLessThanMin", resourceCulture);
             }
         }
     }

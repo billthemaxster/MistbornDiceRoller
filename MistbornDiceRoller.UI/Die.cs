@@ -4,7 +4,7 @@
 // <author>Martin Kennish</author>
 using System;
 
-namespace MistbornDiceRoller
+namespace MistbornDiceRoller.UI
 {
     /// <summary>
     /// Represents a die and has rolling functionality.

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MistbornDiceRoller {
+namespace MistbornDiceRoller.UI {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace MistbornDiceRoller {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Exceptions {
+    internal class UIMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Exceptions() {
+        internal UIMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MistbornDiceRoller {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.Exceptions", typeof(Exceptions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MistbornDiceRoller.UI.UIMessages", typeof(UIMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,47 @@ namespace MistbornDiceRoller {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot have more than 10 dice..
+        ///   Looks up a localized string similar to Could not add another dice, there are already 10..
         /// </summary>
-        internal static string RepositoryCountAtMax {
+        internal static string CantAddCountMax {
             get {
-                return ResourceManager.GetString("RepositoryCountAtMax", resourceCulture);
+                return ResourceManager.GetString("CantAddCountMax", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot have less than 2 dice..
+        ///   Looks up a localized string similar to Could not remove another dice, there are already 2..
         /// </summary>
-        internal static string RepositoryCountAtMin {
+        internal static string CantRemoveCountMin {
             get {
-                return ResourceManager.GetString("RepositoryCountAtMin", resourceCulture);
+                return ResourceManager.GetString("CantRemoveCountMin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are more than 10 dice in the repository..
+        ///   Looks up a localized string similar to The number of dice must be set to roll..
         /// </summary>
-        internal static string RepositoryCountGreaterThanMax {
+        internal static string MustHaveCount {
             get {
-                return ResourceManager.GetString("RepositoryCountGreaterThanMax", resourceCulture);
+                return ResourceManager.GetString("MustHaveCount", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are less than 2 dice in the repository..
+        ///   Looks up a localized string similar to Number of dice reset, there were too many..
         /// </summary>
-        internal static string RepositoryCountLessThanMin {
+        internal static string RepositoryCountTooBig {
             get {
-                return ResourceManager.GetString("RepositoryCountLessThanMin", resourceCulture);
+                return ResourceManager.GetString("RepositoryCountTooBig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of dice reset, there were too few..
+        /// </summary>
+        internal static string RepositoryCountTooSmall {
+            get {
+                return ResourceManager.GetString("RepositoryCountTooSmall", resourceCulture);
             }
         }
     }
